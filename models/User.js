@@ -3,7 +3,13 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 
-class User extends Model {}
+//create our User model
+class User extends Model {
+    //set up method to run on instance data (per user) to check password
+    checkPassword(loginPW) {
+        return bcrypt.compareSync(loginPW, this.password);
+    }
+}
 
 
 //define table columns and configuration
@@ -41,22 +47,22 @@ User.init(
                 return newUserData;
             },
             // set up beforeUpdate lifecycle "hook" functionality
-        async beforeUpdate(updatedUserData) {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-            return updatedUserData;
-        }
-    },
-    
-    //pass our imported sequelize connection (the direct connection to our database)
-    sequelize,
-    //dont automatically create createdAt/updatedAt timestamp fields
-    timestamps: false,
-    //don't pluralize name of database table
-    freezeTableName: true,
-    //use underscores instead of camel-case(ie 'comment_text'not 'commentText')
-    underscored: true,
-    //make it so our model name stays lowercase in the database
-    modelName: 'user'
+            async beforeUpdate(updatedUserData) {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
+        },
+
+        //pass our imported sequelize connection (the direct connection to our database)
+        sequelize,
+        //dont automatically create createdAt/updatedAt timestamp fields
+        timestamps: false,
+        //don't pluralize name of database table
+        freezeTableName: true,
+        //use underscores instead of camel-case(ie 'comment_text'not 'commentText')
+        underscored: true,
+        //make it so our model name stays lowercase in the database
+        modelName: 'user'
     }
 );
 
