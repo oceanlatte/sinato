@@ -22,3 +22,5 @@ source db/schema.sql
 6) DB_NAME='sinato_db'
 DB_USER='your-mysql-username'
 DB_PASSWORD='your-mysql-password'
+
+7) npm install bcrypt
