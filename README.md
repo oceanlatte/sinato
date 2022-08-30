@@ -24,3 +24,10 @@ DB_USER='your-mysql-username'
 DB_PASSWORD='your-mysql-password'
 
 7) npm install bcrypt
+
+8) Post users in insomnia:
+    Post http://localhost:3001/api/users
+    {
+        "username": "name",
+        "password": "password"
+    }

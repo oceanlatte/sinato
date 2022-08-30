@@ -9,11 +9,11 @@ class User extends Model {}
 //define table columns and configuration
 User.init(
     {
+        // define an id column
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-         
             autoIncrement: true
         },
         //define a username column
