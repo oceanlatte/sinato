@@ -1,12 +1,12 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
 ///GET /api/users
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     //Access our User model and run .findAll() method
     //.then assigns the data we get from findAll() to dbUserData
     User.findAll({
-        attributes: { exclude: ['password'] }
+        attributes: { exclude: ["password"] }
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -16,16 +16,16 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/users/1
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
+        attributes: { exclude: ["password"] },
         where: {
             id: req.params.id
         }
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: "No user found with this id" });
                 return;
             }
             res.json(dbUserData);
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/users
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     // expects {username: 'Lernantino', password: 'password1234'}
     User.create({
         username: req.body.username,
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
         });
 });
 
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
       User.findOne({
         where: {
@@ -58,7 +58,7 @@ router.post('/login', (req, res) => {
         }
       }).then(dbUserData => {
         if (!dbUserData) {
-          res.status(400).json({ message: 'No user with that email address!' });
+          res.status(400).json({ message: "No user with that email address!" });
           return;
         }
 
@@ -69,7 +69,7 @@ router.post('/login', (req, res) => {
             return;
         }
     
-        res.json({ user: dbUserData, message: 'You are now logged in!'});
+        res.json({ user: dbUserData, message: "You are now logged in!"});
     
         // Verify user
     
@@ -77,7 +77,7 @@ router.post('/login', (req, res) => {
     });
 
 // PUT /api/users/1 to update
-router.put('/:id', (req, res) => {
+router.put("/:id", (req, res) => {
     //expects {username:'lernantino', email: 'lernantino@gmail.com', password:'password1234'}
 
     //if req.body had exavt key/value pairs to match the model, you can just use the `req.body` instead
@@ -89,7 +89,7 @@ router.put('/:id', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData[0]) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: "No user found with this id" });
                 return;
             }
             res.json(dbUserData);
@@ -100,7 +100,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
@@ -108,7 +108,7 @@ router.delete('/:id', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: "No user found with this id" });
                 return;
             }
             res.json(dbUserData);

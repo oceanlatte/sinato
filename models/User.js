@@ -1,15 +1,15 @@
 //Requirements 
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 
 //create our User model
 class User extends Model {
     //set up method to run on instance data (per user) to check password
-    checkPassword(loginPW) {
-        return bcrypt.compareSync(loginPW, this.password);
-    }
+    // checkPassword(loginPW) {
+    //     return bcrypt.compareSync(loginPW, this.password);
+    //}
 }
 
 
@@ -63,7 +63,7 @@ User.init(
         //use underscores instead of camel-case(ie 'comment_text'not 'commentText')
         underscored: true,
         //make it so our model name stays lowercase in the database
-        modelName: 'user'
+        modelName: "user"
     }
 );
 
