@@ -21,7 +21,14 @@
                 {{/if}}
             </nav>
         </header>
-
+        <main>
+            {{{ body }}}
+        </main>
+        <footer>
+            Thank you for choosing Sinato!
+        </footer>
     </div>
+    {{#if loggedIn}}
+    <script src="/javasript/logout.js"></script>
 </body>
 </html>
