@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="/">Sinato Social</a>
+            </h1>
+            <nav>
+                {{#if loggedIn}}
+                <a href="/dashboard">dashboard</a>
+                <button id="logout">logout</button>
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
+            </nav>
+        </header>
+
+    </div>
 </body>
 </html>
