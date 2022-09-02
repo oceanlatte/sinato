@@ -71,7 +71,7 @@ router.post("/login", (req, res) => {
     
         res.json({ user: dbUserData, message: "You are now logged in!"});
     
-        // Verify user
+        // Verify user sessions <=======================
     
       });  
     });
@@ -118,5 +118,6 @@ router.delete("/:id", (req, res) => {
             res.status(500).json(err);
         });
 });
+// no logout route <============================
 
 module.exports = router;

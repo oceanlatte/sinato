@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { json } = require("express/lib/response");
+// const { json } = require("express/lib/response");
 const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 
@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
             "id",
             "title",
             "post_content",
-            "create_at",
+            "created_at",
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [
@@ -40,6 +40,7 @@ router.get("/", (req, res) => {
 
         res.render('homepage', {
            body
+        
         });
     })
     .catch(err=>{
@@ -98,7 +99,7 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
-
+// need login and signup routes <====================
 
 
 module.exports = router;
