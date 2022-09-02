@@ -8,7 +8,13 @@ const { Post, User, Comment, Vote } = require("../../models");
 router.get("/", (req, res) => {
     console.log("======================");
     Post.findAll({
-        attributes: ["id", "title", "post_content", "created_at"],
+        attributes: [
+            "id", 
+            "title", 
+            "post_content", 
+            "created_at",
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        ],
         order: [['created_at', 'DESC']],
         include: [
             //includes the Comment model
@@ -20,7 +26,6 @@ router.get("/", (req, res) => {
                     "post_id",
                     "user_id",
                     "created_at",
-                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
                 ],
                 include: {
                     model: User,
@@ -49,7 +54,8 @@ router.get("/:id", (req, res) => {
             "id",
             "title",
             "post_content",
-            "created_at"
+            "created_at",
+            [sequelize.literal("(COUNT(*) FROM vote WHERE post.id = vote.post_id)"), "vote_count"]
         ],
         include: [
             {
