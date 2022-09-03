@@ -89,6 +89,7 @@ router.get("/post/:id", (req, res) => {
 });
 
 //login route
+// NEEDS EXPRESS TO CONNECT STILL *******
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
