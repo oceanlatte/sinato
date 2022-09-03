@@ -54,7 +54,6 @@ User.init(
             }
         },
 
-        //pass our imported sequelize connection (the direct connection to our database)
         sequelize,
         //dont automatically create createdAt/updatedAt timestamp fields
         timestamps: false,

@@ -1,6 +1,6 @@
 //Requirements 
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 //create the Post Model
 class Post extends Model {
@@ -14,20 +14,20 @@ class Post extends Model {
             id: body.post_id
           },
           attributes: [
-            'id',
-            'post_content',
-            'title',
-            'created_at',
+            "id",
+            "post_content",
+            "title",
+            "created_at",
             //the vote tally
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"), "vote_count"]
           ],
           include: [
             {
               model: models.Comment,
-              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+              attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
               include: {
                 model: models.User,
-                attributes: ['username']
+                attributes: ["username"]
               }
             }
           ]
@@ -56,8 +56,8 @@ class Post extends Model {
       user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
-          key: 'id'
+          model: "user",
+          key: "id"
         }
       }
     },
@@ -65,7 +65,7 @@ class Post extends Model {
       sequelize,
       freezeTableName: true,
       underscored: true,
-      modelName: 'post'
+      modelName: "post"
     }
   );
   

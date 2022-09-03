@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const { Comment } = require('../../models');
+const router = require("express").Router();
+const { Comment } = require("../../models");
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     Comment.findAll()
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     // req.session stuff here <=============================
     Comment.create({
         comment_text: req.body.comment_text,
