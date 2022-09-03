@@ -94,8 +94,8 @@ router.post("/", (req, res) => {
       });
 });
 
-router.put("/upvote", (req, res) => {
-  // for upvotes
+router.put("/vote", (req, res) => {
+  // for votes
   Vote.create({
     user_id: req.body.user_id,
     post_id: req.body.post_id,
