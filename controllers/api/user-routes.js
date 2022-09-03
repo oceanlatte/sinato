@@ -43,7 +43,16 @@ router.post("/", (req, res) => {
     username: req.body.username,
     password: req.body.password,
   })
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbUserData) => {
+      // save user data to session
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+
+        res.json(dbUserData);
+      });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -69,9 +78,14 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    res.json({ user: dbUserData, message: "You are now logged in!" });
+    // Verify user sessions
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
 
-    // Verify user sessions <=======================
+      res.json({ user: dbUserData, message: "You are now logged in!" });
+    });
   });
 });
 
