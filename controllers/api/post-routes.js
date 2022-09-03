@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
     attributes: [
       "id",
       "title",
+      "artist",
       "post_content",
       "created_at",
       [
@@ -52,6 +53,7 @@ router.get("/:id", (req, res) => {
     attributes: [
       "id",
       "title",
+      "artist",
       "post_content",
       "created_at",
       [
@@ -107,6 +109,7 @@ router.put("/upvote", (req, res) => {
       attributes: [
         "id",
         "title",
+        "artist",
         "post_content",
         "created_at",
         [

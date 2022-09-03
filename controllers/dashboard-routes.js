@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
     attributes: [
       "id",
       "title",
+      "artist",
       "post_content",
       "created_at",
       [
@@ -90,11 +91,14 @@ router.get("/editcomments/:id", (req, res) => {
     });
 });
 
+// create a new comment route
 router.get("/new", (req, res) => {
+  Comment.create()
   Post.findAll({
     //session <==================
-    attributes: ["id", "title", "text_conent", "created_at"],
+    attributes: ["id", "title", "text_content", "created_at"],
   })
+  // trying to get to the render part to be able to get to "add-post"
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("add-post", { posts }); //<=====login stuff

@@ -16,6 +16,7 @@ class Post extends Model {
           attributes: [
             "id",
             "post_content",
+            "artist",
             "title",
             "created_at",
             //the vote tally
@@ -46,6 +47,10 @@ class Post extends Model {
         autoIncrement: true
       },
       title: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      artist: {
         type: DataTypes.STRING,
         allowNull: false
       },
