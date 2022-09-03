@@ -13,12 +13,12 @@
                 <a href="/">Sinato Social</a>
             </h1>
             <nav>
-                {{#if loggedIn}}
+                {{!-- {{#if loggedIn}} --}}
                 <a href="/dashboard">dashboard</a>
                 <button id="logout">logout</button>
-                {{else}}
+                {{!-- {{else}} --}}
                 <a href="/login">login</a>
-                {{/if}}
+                {{!-- {{/if}} --}}
             </nav>
         </header>
         <main>
@@ -28,7 +28,7 @@
             Thank you for choosing Sinato!
         </footer>
     </div>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}} --}}
     <script src="/javasript/logout.js"></script>
 </body>
 </html>
