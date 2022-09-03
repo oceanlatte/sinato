@@ -131,6 +131,7 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 // no logout route <============================
 
 module.exports = router;
