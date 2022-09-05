@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 //Import Models
+=======
+const User = require('./User');
+const Post = require('./Post');
+>>>>>>> feature/post-model
 
 //const User = require("./User");
 const Post = require("./Post");
@@ -6,6 +11,7 @@ const User = require("./User");
 const Thumbs = require("./Thumbs");
 const Comment = require("./Comment");
 
+<<<<<<< HEAD
 //TODO: Review associations for delete functionality- There is an issue with 1:N / M:M associations and deleting
 
 //Associations
@@ -73,3 +79,6 @@ User.hasMany(Post, {
   });
   
   module.exports = { User, Post, Thumbs, Comment };
+=======
+module.exports = { User, Post };
+>>>>>>> feature/post-model
