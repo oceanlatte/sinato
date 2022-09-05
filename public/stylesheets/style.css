@@ -1,0 +1,24 @@
+/* 
+Aqua blue shade: #46B4A9
+Light green: #D5F979
+background dark gray: #2A2747
+
+light gray gradient:
+background-image: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040); 
+
+Google fonts: 
+Ubuntu regular 400: post content text font and comments
+Work Sans bold 700: links, dashboard header, song name, artist name, logout button
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Work Sans', sans-serif;
+*/
+
+:root {
+  --blue: #46B4A9;
+  --green: #D5F979;
+  --gray: #2A2747;
+}
+
+a {
+  text-decoration: none;
+}

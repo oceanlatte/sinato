@@ -4,31 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Work+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
     <div class="wrapper">
         <header>
-            <h1>
-                <a href="/">Sinato Social</a>
-            </h1>
-            <nav>
+            <nav class="navbar">
+                <h1>
+                    <a href="/">Sinato Social</a>
+                </h1>
                 {{!-- {{#if loggedIn}} --}}
-                <a href="/dashboard">dashboard</a>
                 <button id="logout">logout</button>
                 {{!-- {{else}} --}}
                 <a href="/login">login</a>
                 {{!-- {{/if}} --}}
             </nav>
         </header>
-        <main>
+        <main class="mx-3">
+            
+            <nav class="nav flex-column ms-0 border border-1 rounded-end">
+                <li class="nav-item border-bottom px-2">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-item border-bottom px-2">
+                    <a href="/dashboard/new">New Post</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="/dashboard">My Posts</a>
+                </li>
+            </nav>
+
             {{{ body }}}
         </main>
-        <footer>
+        <footer class="mx-3">
             Thank you for choosing Sinato!
         </footer>
     </div>
     {{!-- {{#if loggedIn}} --}}
     <script src="/javasript/logout.js"></script>
+    {{!-- {{/if}} --}}
 </body>
 </html>
