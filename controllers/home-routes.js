@@ -74,7 +74,7 @@ router.get("/post/:id", (req, res) => {
         res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      const post = dbPostDATA.GET({ plain: true });
+      const post = dbPostData.get({ plain: true });
       console.log(post);
 
       res.render("single-post", {
@@ -89,7 +89,6 @@ router.get("/post/:id", (req, res) => {
 });
 
 //login route
-// NEEDS EXPRESS TO CONNECT STILL *******
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -98,7 +97,5 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-
-// signup routes
 
 module.exports = router;
