@@ -16,16 +16,16 @@
             <h1>
                 <a href="/" id="logo">Sinato Social</a>
             </h1>
-                {{!-- {{#if loggedIn}} --}}
-                <button class="border-0 rounded-pill px-3 log-in-out">logout</button>
-                {{!-- {{else}} --}}
+                <!--{{#if loggedIn}}-->
+                <button id="logout" class="border-0 rounded-pill px-3 log-in-out">logout</button>
+                <!--{{else}}-->
                 <a href="/login" class="log-in-out border-0 rounded-pill px-3">login</a>
-                {{!-- {{/if}} --}}
+                <!--{{/if}}-->
         </header>
 
         <main class="container mx-0 p-0">
             <div class="row d-flex justify-content-between">
-                {{!-- {{#if loggedIn}} --}}
+                <!--{{#if loggedIn}}-->
                 <nav class="nav col-2 align-self-start flex-column border-0 rounded-end my-4 ps-3" id="user-nav">
                     <li class="nav-item border-bottom ps-2 pe-5 py-2">
                         <a href="/">Home</a>
@@ -37,7 +37,7 @@
                         <a href="/dashboard">My Posts</a>
                     </li>
                 </nav>
-                {{!-- {{/if}} --}}
+                 <!--{{/if}} -->
 
                 {{{ body }}}
             </div>
@@ -46,8 +46,8 @@
             Thank you for choosing Sinato!
         </footer>
     </div>
-    {{!-- {{#if loggedIn}} --}}
-    <script src="/javasript/logout.js"></script>
-    {{!-- {{/if}} --}}
+    <!--{{#if loggedIn}}-->
+    <script src="/javascript/logout.js"></script>
+    <!--{{/if}}-->
 </body>
 </html>
