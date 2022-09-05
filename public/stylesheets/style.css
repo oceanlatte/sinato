@@ -22,3 +22,12 @@ font-family: 'Work Sans', sans-serif;
 a {
   text-decoration: none;
 }
+
+#user-nav {
+  width: 130px;
+}
+
+#logout {
+  max-height: fit-content;
+  background-image: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040); 
+}
