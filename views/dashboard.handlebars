@@ -10,3 +10,19 @@
         <button type="submit" class="btn">Create</button>
     </form>
 </section>
+
+{{#if posts.length}}
+<section>
+    <h2>Posts</h2>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>
