@@ -21,6 +21,7 @@
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.2",
+    "emoticons": "^0.1.8",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",

@@ -38,7 +38,6 @@ User.init(
             }
         }
     },
-
     {
         //add hook to the second property in User.init()
         hooks: {
