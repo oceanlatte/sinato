@@ -12,32 +12,34 @@
 </head>
 <body>
     <div>
-        <header class="d-flex justify-content-between align-items-center my-2 mx-3">
+        <header class="d-flex justify-content-between align-items-center my-3  mx-3">
             <h1>
-                <a href="/">Sinato Social</a>
+                <a href="/" id="logo">Sinato Social</a>
             </h1>
                 {{!-- {{#if loggedIn}} --}}
-                <button id="logout">logout</button>
+                <button class="border-0 rounded-pill px-3 log-in-out">logout</button>
                 {{!-- {{else}} --}}
-                <a href="/login">login</a>
+                <a href="/login" class="log-in-out border-0 rounded-pill px-3">login</a>
                 {{!-- {{/if}} --}}
         </header>
         <main>
+            {{!-- {{#if loggedIn}} --}}
             <nav class="nav flex-column border border-1 rounded-end my-5 ms-0" id="user-nav">
-                <li class="nav-item border-bottom ps-2 pe-5">
+                <li class="nav-item border-bottom ps-2 pe-5 py-2">
                     <a href="/">Home</a>
                 </li>
-                <li class="nav-item border-bottom px-2">
+                <li class="nav-item border-bottom px-2 py-2">
                     <a href="/dashboard/new">New Post</a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2 py-2">
                     <a href="/dashboard">My Posts</a>
                 </li>
             </nav>
+            {{!-- {{/if}} --}}
 
             {{{ body }}}
         </main>
-        <footer class="my-3 fixed-bottom d-inline-flex justify-content-center">
+        <footer class="py-2 fixed-bottom d-inline-flex justify-content-center">
             Thank you for choosing Sinato!
         </footer>
     </div>

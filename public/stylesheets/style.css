@@ -6,6 +6,9 @@ background dark gray: #2A2747
 light gray gradient:
 background-image: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040); 
 
+blue-green gradient:
+background-image: linear-gradient(to bottom, #46B4A9, #56C8A5, #77DB9A, #A2EC8A, #D5F979);
+
 Google fonts: 
 Ubuntu regular 400: post content text font and comments
 Work Sans bold 700: links, dashboard header, song name, artist name, logout button
@@ -17,17 +20,44 @@ font-family: 'Work Sans', sans-serif;
   --blue: #46B4A9;
   --green: #D5F979;
   --gray: #2A2747;
+  --gray-gradient: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040);
+  --blue-gradient: linear-gradient(to right top, #46B4A9, #56C8A5, #77DB9A, #A2EC8A, #D5F979);
+}
+
+body {
+  background-color: var(--gray);
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
 }
 
 a {
   text-decoration: none;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--blue);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Work Sans', sans-serif;
 }
 
 #user-nav {
-  width: 130px;
+  width: 160px;
+  background-image: var(--gray-gradient); 
 }
 
-#logout {
+.log-in-out {
+  color: white;
   max-height: fit-content;
-  background-image: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040); 
+  background-image: var(--gray-gradient); 
+  font-weight: normal;
+}
+
+.log-in-out:hover {
+  background-image: var(--blue-gradient);
+  color: var(--gray);
 }
