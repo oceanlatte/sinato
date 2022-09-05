@@ -22,6 +22,7 @@ font-family: 'Work Sans', sans-serif;
   --gray: #2A2747;
   --gray-gradient: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040);
   --blue-gradient: linear-gradient(to right top, #46B4A9, #56C8A5, #77DB9A, #A2EC8A, #D5F979);
+  --green-border: 1px solid #D5f979;
 }
 
 body {
@@ -56,6 +57,7 @@ h1, h2, h3, h4 {
   max-height: fit-content;
   background-image: var(--gray-gradient); 
   font-weight: normal;
+  border: none;
 }
 
 .log-in-out:hover {
@@ -66,7 +68,7 @@ h1, h2, h3, h4 {
 
 /* single post styling */
 #single-post {
-  border: 1px solid var(--green);
+  border: var(--green-border);
   background-color: transparent;
 }
 
@@ -78,3 +80,20 @@ h1, h2, h3, h4 {
 .artist-name {
   color: var(--green);
 }
+
+
+
+
+
+
+
+/* login page styling */
+.outline {
+  border: var(--green-border);
+  margin-left: 60px;
+  padding: 15px;
+  width: fit-content;
+  background-color: transparent;
+}
+
+

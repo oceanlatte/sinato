@@ -92,6 +92,10 @@ router.get("/editcomments/:id", (req, res) => {
 });
 
 // creates a new post route!! separate page to make new posts!!
+router.get("/new", (req, res) => {
+  res.render("add-post"); //<===============login stuff
+
+})
 // router.get("/new", (req, res) => {
 //   Post.findAll({
 //     //session <==================

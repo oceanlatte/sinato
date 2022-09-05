@@ -1,34 +1,39 @@
-<form>
-    <div>
-        <label for="email-login">email:</label>
-        <input type="text" id="email-login"/>
-    </div>
-    <div>
-        <label for="password-login">password:</label>
-        <input type="password" id="password-login"/>
-    </div>
-    <div>
-        <button type="submit" id="login-form">login</button>
-    </div>
-</form>
+<div class="col">
+    <form class="outline rounded p-4">
+        <h3 class="d-block post-title text-center rounded mb-3">Login</h3>
+        <div>
+            <label for="email-login">email:</label>
+            <input type="text" id="email-login"/>
+        </div>
+        <div>
+            <label for="password-login">password:</label>
+            <input type="password" id="password-login"/>
+        </div>
+        <div>
+            <button type="submit" class="mt-2 rounded-pill px-3 log-in-out" id="login-form">login</button>
+        </div>
+    </form>
 
-<form>
-    <div>
-        <label for="username-signup">username:</label>
-        <input type="text" id="username-signup"/>
-    </div>
-    <div>
-        <label for="email-signup">email:</label>
-        <input type="text" id="email-signup" />
-    </div>
-    <div>
-        <label for="password-signup">password:</label>
-        <input type="password" id="password-signup" />
-    </div>
-    <div>
-        <button type="submit" id="signup-form">signup</button>
-    </div>
-</form>
+    <form class="mt-5 outline rounded p-4">
+        <h3 class="post-title text-center rounded mb-3">Sign Up</h3>
+        <div>
+            <label for="username-signup">username:</label>
+            <input type="text" id="username-signup"/>
+        </div>
+        <div>
+            <label for="email-signup">email:</label>
+            <input type="text" id="email-signup" />
+        </div>
+        <div>
+            <label for="password-signup">password:</label>
+            <input type="password" id="password-signup" />
+        </div>
+        <div>
+            <button type="submit" class="mt-2 rounded-pill px-3 log-in-out" id="signup-form">signup</button>
+        </div>
+    </form>
+
+</div>
 
 <script src="/javascript/login.js"></script>
 
