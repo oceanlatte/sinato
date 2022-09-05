@@ -45,8 +45,9 @@ h1, h2, h3, h4 {
   font-family: 'Work Sans', sans-serif;
 }
 
+/* main styling */
 #user-nav {
-  width: 160px;
+  width: 180px;
   background-image: var(--gray-gradient); 
 }
 
@@ -60,4 +61,20 @@ h1, h2, h3, h4 {
 .log-in-out:hover {
   background-image: var(--blue-gradient);
   color: var(--gray);
+}
+
+
+/* single post styling */
+#single-post {
+  border: 1px solid var(--green);
+  background-color: transparent;
+}
+
+.post-title {
+  background-image: var(--blue-gradient);
+  color: var(--gray);
+}
+
+.artist-name {
+  color: var(--green);
 }
