@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment, Vote } = require("../models");
+const { Post, User, Comment, Thumbs } = require("../models");
 
 router.get("/", (req, res) => {
   Post.findAll({
@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
       "post_content",
       "created_at",
       [
-        sequelize.literal("(COUNT(*) FROM vote WHERE post.id = vote.post_id)"),
-        "vote_count",
+        sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+        "thumbs_count",
       ],
     ],
   })
@@ -40,7 +40,7 @@ router.get("/edit/:id", (req, res) => {
     //     "post_content",
     //     "title",
     //     "created_at",
-    //     [sequelize.literal("(COUNT(*) FROM vote WHERE post.id = vote.post_id)"), "vote_count"]
+    //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
     // ],
     include: [
       {

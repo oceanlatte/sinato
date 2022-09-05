@@ -2,10 +2,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Vote extends Model {}
+class Thumbs extends Model {}
 
 //Define the table
-Vote.init(
+Thumbs.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -32,8 +32,8 @@ Vote.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "vote"
+    modelName: "thumbs"
   }
 );
 
-module.exports = Vote;
+module.exports = Thumbs;

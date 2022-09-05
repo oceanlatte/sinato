@@ -2,7 +2,7 @@ const router = require("express").Router();
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const sequelize = require("../../config/connection");
-const { Post, User, Comment, Vote } = require("../../models");
+const { Post, User, Comment, Thumbs } = require("../../models");
 
 //get all posts
 router.get("/", (req, res) => {
@@ -16,9 +16,9 @@ router.get("/", (req, res) => {
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+          "(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"
         ),
-        "vote_count",
+        "thumbs_count",
       ],
     ],
     order: [["created_at", "DESC"]],
@@ -57,8 +57,8 @@ router.get("/:id", (req, res) => {
       "post_content",
       "created_at",
       [
-        sequelize.literal("(COUNT(*) FROM vote WHERE post.id = vote.post_id)"),
-        "vote_count",
+        sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+        "thumbs_count",
       ],
     ],
     include: [
@@ -96,9 +96,9 @@ router.post("/", (req, res) => {
       });
 });
 
-router.put("/vote", (req, res) => {
-  // for votes
-  Vote.create({
+router.put("/thumbs", (req, res) => {
+  // for thumbs up
+  Thumbs.create({
     user_id: req.body.user_id,
     post_id: req.body.post_id,
   }).then(() => {
@@ -114,9 +114,9 @@ router.put("/vote", (req, res) => {
         "created_at",
         [
           sequelize.literal(
-            "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+            "(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"
           ),
-          "vote_count",
+          "thumbs_count",
         ],
       ],
     })
