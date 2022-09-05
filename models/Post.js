@@ -4,8 +4,8 @@ const sequelize = require("../config/connection");
 
 //create the Post Model
 class Post extends Model {
-    static vote(body, models) {
-      return models.Vote.create({
+    static thumbs(body, models) {
+      return models.Thumbs.create({
         user_id: body.user_id,
         post_id: body.post_id
       }).then(() => {
@@ -19,8 +19,8 @@ class Post extends Model {
             "artist",
             "title",
             "created_at",
-            //the vote tally
-            [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"), "vote_count"]
+            //the thumbs tally
+            [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
           ],
           include: [
             {

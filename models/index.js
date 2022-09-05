@@ -3,7 +3,7 @@
 //const User = require("./User");
 const Post = require("./Post");
 const User = require("./User");
-const Vote = require("./Vote");
+const Thumbs = require("./Thumbs");
 const Comment = require("./Comment");
 
 //TODO: Review associations for delete functionality- There is an issue with 1:N / M:M associations and deleting
@@ -20,36 +20,36 @@ User.hasMany(Post, {
   });
   
   User.belongsToMany(Post, {
-    through: Vote,
-    as: "voted_posts",
+    through: Thumbs,
+    as: "thumbs_posts",
   
     foreignKey: "user_id",
     onDelete: "SET NULL"
   });
   
   Post.belongsToMany(User, {
-    through: Vote,
-    as: "voted_posts",
+    through: Thumbs,
+    as: "thumbs_posts",
     foreignKey: "post_id",
     onDelete: "SET NULL"
   });
   
 //  TODO:  Review associations 
-  Vote.belongsTo(User, {
+  Thumbs.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "SET NULL"
   });
   
-  Vote.belongsTo(Post, {
+  Thumbs.belongsTo(Post, {
     foreignKey: "post_id",
     onDelete: "SET NULL"
   });
   
-  User.hasMany(Vote, {
+  User.hasMany(Thumbs, {
     foreignKey: "user_id"
   });
   
-  Post.hasMany(Vote, {
+  Post.hasMany(Thumbs, {
     foreignKey: "post_id"
   });
   
@@ -72,4 +72,4 @@ User.hasMany(Post, {
     foreignKey: "post_id"
   });
   
-  module.exports = { User, Post, Vote, Comment };
+  module.exports = { User, Post, Thumbs, Comment };
