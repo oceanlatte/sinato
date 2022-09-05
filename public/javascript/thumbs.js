@@ -1,10 +1,10 @@
-async function voteClickHandler(event) {
+async function thumbsClickHandler(event) {
     event.preventDefault();
   
     const id = window.location.toString().split("/")[
       window.location.toString().split('/').length - 1
     ];
-    const response = await fetch("/api/posts/vote", {
+    const response = await fetch("/api/posts/thumbs", {
       method: "PUT",
       body: JSON.stringify({
         post_id: id
@@ -21,5 +21,5 @@ async function voteClickHandler(event) {
     }
   }
   
-  document.querySelector(".vote").addEventListener("click", voteClickHandler);
+  document.querySelector(".thumbs").addEventListener("click", thumbsClickHandler);
   
