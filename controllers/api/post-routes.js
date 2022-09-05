@@ -84,7 +84,6 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   // expects {title: "Taskmaster goes public!", post_content: "Crazy that no one expected it.", user_id: 1}
   console.log(req.body),
-    //console.log(req.session.user_id);
     Post.create({
       ...req.body,
       user_id: req.session.user_id
@@ -96,8 +95,8 @@ router.post("/", (req, res) => {
       });
 });
 
-router.put("/vote", (req, res) => {
-  // for votes
+router.put("/upvote", (req, res) => {
+  // for upvotes
   Vote.create({
     user_id: req.body.user_id,
     post_id: req.body.post_id,
