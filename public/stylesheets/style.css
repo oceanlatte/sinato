@@ -46,7 +46,11 @@ h1, h2, h3, h4 {
   font-family: 'Work Sans', sans-serif;
 }
 
-/* main styling */
+footer {
+  background-color: var(--gray);
+}
+
+/* --------main.handlebars styling-------- */
 #user-nav {
   width: 215px;
   background-image: var(--gray-gradient); 
@@ -72,7 +76,7 @@ h1, h2, h3, h4 {
   color: var(--gray);
 }
 
-/* single post styling */
+/* -------single post styling--------- */
 .post-card {
   background-color: transparent;
 }
