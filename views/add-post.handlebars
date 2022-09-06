@@ -1,18 +1,18 @@
 <article class="col outline rounded p-4">
     <a href="/dashboard"> &larr; Back to dashboard</a>
-    <h2 class="d-block post-title text-center rounded mb-3">
+    <h2 class="d-block post-title text-center my-3 rounded p-2 px-4">
         Add New Post
     </h2>
     <form id="new-post-form">
-        <div>
-            <label for="post-title">Song Title:</Title>:</label>
-            <input name="post-title" type="text" id="post-title"/>
+        <div class="my-2">
+            <label for="post-title" class="new-post-labels">Song Title:</Title></label>
+            <input name="post-title" type="text" class="form-control" id="post-title"/>
         </div>
-        <div>
-            <label for="artist-name">Artist Name:</label>
-            <input name="artist-name" type="text" id="artist-name"/>
+        <div class="my-2">
+            <label for="artist-name" class="new-post-labels">Artist Name:</label>
+            <input name="artist-name" type="text" class="form-control" id="artist-name"/>
         </div>
-        <input type="text" id="post-content" class="post-content"/>
-        <button type="submit" class="mt-2 rounded-pill px-3">Save Post</button>
+        <textarea id="post-content" class="form-control mt-4 mb-3" rows="3"></textarea>
+        <button type="submit" class="mt-2 rounded-pill px-3 log-in-out">Save Post</button>
     </form>
 </article>

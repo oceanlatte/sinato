@@ -90,6 +90,15 @@ footer {
   color: var(--gray);
 }
 
+.post-title a {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--gray);
+}
+
+.post-title a:hover {
+  color: white;
+}
+
 .artist-name {
   color: var(--green);
 }
@@ -126,7 +135,11 @@ footer {
   width: 100px;
 }
 
-
+/* ------- add post styling ------ */
+.new-post-labels {
+  font-size: 20px;
+  color: var(--green);
+}
 
 
 

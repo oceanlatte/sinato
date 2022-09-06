@@ -98,16 +98,15 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   // expects {title: "Taskmaster goes public!", post_content: "Crazy that no one expected it.", user_id: 1}
-  console.log(req.body),
-    Post.create({
-      ...req.body,
-      user_id: req.session.user_id
-    })
-      .then((dbPostData) => res.json(dbPostData))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+  Post.create({
+    ...req.body,
+    user_id: req.session.user_id
+  })
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put("/thumbs", withAuth, (req, res) => {

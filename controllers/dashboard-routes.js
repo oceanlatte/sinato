@@ -7,7 +7,6 @@ router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
     // session check
-    
     where: {
       user_id: req.session.user_id
     },
@@ -42,7 +41,6 @@ router.get("/", withAuth, (req, res) => {
     ]
   })
     .then((dbPostData) => {
-      console.log(dbPostData);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render("dashboard", { posts , loggedIn: true });
     })
@@ -85,7 +83,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
     .then((dbPostData) => {
       if (dbPostData) {
         const post = dbPostData.get({ plain: true });
-        console.log(dbPostData);
         res.render("edit-post", {
           post,
         });
@@ -138,7 +135,6 @@ router.get("/editcomments/:id", withAuth, (req, res) => {
 // });
 
 router.get("/new", withAuth, (req, res) => {
-  console.log(req.session);
   Post.findAll({
     // session check
     
@@ -176,7 +172,6 @@ router.get("/new", withAuth, (req, res) => {
     ]
   })
     .then((dbPostData) => {
-      console.log(dbPostData);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render("add-post", { posts , loggedIn: true });
     })
