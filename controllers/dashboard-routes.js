@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Thumbs } = require("../models");
+const withAuth = require('../utils/auth');
 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Post.findAll({
     // session check
     where: {
@@ -30,7 +31,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     where: {
       id: req.params.id,
@@ -73,7 +74,7 @@ router.get("/edit/:id", (req, res) => {
     });
 });
 
-router.get("/editcomments/:id", (req, res) => {
+router.get("/editcomments/:id", withAuth, (req, res) => {
   Comment.findByPk()
     .then((dbCommentData) => {
       if (dbCommentData) {
@@ -92,7 +93,7 @@ router.get("/editcomments/:id", (req, res) => {
 });
 
 //creates a new post route!! separate page to make new posts!!
-router.get("/new", (req, res) => {
+router.get("/new", withAuth, (req, res) => {
   Post.findAll({
     //session <==================
     attributes: ["id", "title", "post_content", "created_at"],

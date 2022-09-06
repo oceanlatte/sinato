@@ -1,4 +1,5 @@
 const router = require("express").Router();
+//const { contentDisposition } = require("express/lib/utils");
 const { User } = require("../../models");
 
 ///GET /api/users
@@ -59,34 +60,32 @@ router.post("/", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
-  // expects {email: "lernantino@gmail.com", password: "password1234"}
+router.post('/login', (req, res) => {
   User.findOne({
-    where: {
-      username: req.body.username,
-    },
-  }).then((dbUserData) => {
-    if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
-      return;
-    }
+      where: {
+          username: req.body.username
+      }
+  }).then(dbUserData => {
+      if (!dbUserData) {
+          res.status(400).json({ message: "No user with that username!" });
+          return;
+      }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+      const validPassword = dbUserData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res.status(400).json({ message: "That's the wrong password!" });
-      return;
-    }
+      if(!validPassword) {
+          res.status(400).json({ message: "That's the wrong password!"});
+          return;
+      }
 
-    // Verify user sessions
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
+      req.session.save(() => {
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
-    });
-  });
+          res.json({ user: dbUserData, message: 'You are now logged in!'});
+      });
+  })
 });
 
 // logout route
