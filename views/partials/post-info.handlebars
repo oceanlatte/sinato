@@ -1,12 +1,25 @@
-  <div class="card-body">
+<article class="col-9 d-flex align-items-center card post-card border-0">
+
+  <div class="card-body outline rounded-4">
     <h2 class="card-title text-center post-title m-auto my-3 rounded p-2 px-4">
-      This div is the "post-info" partial
-      {{!-- post title here --}}
+      {{title}}
     </h2>
-    <h3 class="card-subtitle artist-name ps-4 my-2">
-      Artist name here
+    <h3 class="card-subtitle artist-name mt-2">
+      <span class="artist-span">artist:</span> {{artist}}
     </h3>
-    <p class="card-text ps-4">
-      Post content here. Look at this post! Yay! New post!! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda doloribus nemo iusto inventore facilis aperiam corrupti sunt sequi dolorem cumque, officia, cupiditate sint alias in. Neque ipsa architecto doloribus dolor.
+    <p>
+      posted by <span class="user-post"> {{user.username}}</span> 
     </p>
+
+    <div class="interactions d-flex justify-content-between">
+      <p class="thumbs-count rounded px-3"> 
+        thumbs count here{{thumbs.thumbs_count}}
+      </p>
+      <p class="ms-3 comment-span">
+        {{comments.length}} {{format_plural "comment" comments.length}}
+      </p>
+    </div>
+
   </div>
+</article>
+  

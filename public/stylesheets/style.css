@@ -65,10 +65,19 @@ h1, h2, h3, h4 {
   color: var(--gray);
 }
 
+#logo:hover {
+  border: none;
+  background-image: var(--blue-gradient);
+  color: var(--gray);
+}
 
 /* single post styling */
 #single-post {
   border: var(--green-border);
+  background-color: transparent;
+}
+
+.post-card {
   background-color: transparent;
 }
 
@@ -81,6 +90,18 @@ h1, h2, h3, h4 {
   color: var(--green);
 }
 
+.artist-span {
+  color: white;
+  font-size: 20px;
+}
+
+.user-post {
+  color: var(--blue);
+}
+
+.thumbs-count {
+  background-image: var(--gray-gradient);
+}
 
 
 

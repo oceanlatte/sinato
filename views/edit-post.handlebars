@@ -6,7 +6,6 @@
     <form>
         <div>
             <input name="post-title" type="text" value="{{post.title}}"/>
-            <span>({{format_url post.post_url}})</span>
         </div>
         <div>
             {{!-- reaction counts here --}}
@@ -21,13 +20,14 @@
     <div>
         <textarea name="comment-body"></textarea>
     </div>
+    
+{{> comments post.comments}}
 
     <div>
         <button type="submit">Add Comment</button>
     </div>
 </form>
 
-{{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

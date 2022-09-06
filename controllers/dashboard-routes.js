@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
       "post_content",
       "created_at",
       [
-        sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-        "thumbs_count",
+        sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+        "thumbs_count"
       ],
     ],
   })
@@ -99,7 +99,7 @@ router.get("/new", (req, res) => {
 // router.get("/new", (req, res) => {
 //   Post.findAll({
 //     //session <==================
-//     attributes: ["id", "title", "text_content", "created_at"],
+//     // attributes: ["id", "title", "artist", "post_content", "created_at"],
 //   })
 //   // trying to get to the render part to be able to get to "add-post"
 //     .then((dbPostData) => {
