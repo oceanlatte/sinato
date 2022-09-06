@@ -1,8 +1,8 @@
-{{#if Posts.length}}
+{{#if posts.length}}
 <section class="col outline rounded p-4">
     <h2 class="d-block post-title text-center rounded mb-3">Posts</h2>
     <ol>
-        {{#each Posts as |post|}}
+        {{#each posts as |post|}}
         <li>
             {{> post-info post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
