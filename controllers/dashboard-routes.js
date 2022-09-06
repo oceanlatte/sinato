@@ -186,22 +186,24 @@ router.get("/new", withAuth, (req, res) => {
     });
 });
 
-// router.post('/new', withAuth, (req, res) => {
-//   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
-//   Post.create({
-//     title: req.body.title,
-//     post_url: req.body.post_url,
-//     user_id: req.session.user_id
-//   })
-//   .then((dbPostData) => {
-//           console.log(dbPostData);
-//           const posts = dbPostData.map(post => post.get({ plain: true }));
-//           res.render("add-post", { posts , loggedIn: true });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//           res.status(500).json(err);
-//         });
+
+
+// router.post("/new", (req, res) => {
+//   // expects {title: "Taskmaster goes public!", post_content: "Crazy that no one expected it.", user_id: 1}
+//   console.log(req.body),
+//     Post.create({
+//       ...req.body,
+//       user_id: req.session.user_id
+//     })
+//     .then((dbPostData) => {
+//       console.log(dbPostData);
+//       const posts = dbPostData.map(post => post.get({ plain: true }));
+//       res.render("add-post", { posts , loggedIn: true });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
 // });
 
 module.exports = router;
