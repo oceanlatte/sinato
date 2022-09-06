@@ -117,20 +117,91 @@ router.get("/editcomments/:id", withAuth, (req, res) => {
 });
 
 //creates a new post route!! separate page to make new posts!!
+// router.get("/new", withAuth, (req, res) => {
+//   Post.findAll({
+//     //session <==================
+//     where: {
+//       // use the ID from the session
+//       user_id: req.session.user_id
+//   },
+//     attributes: ["id", "title", "artist", "post_content", "created_at"],
+//   })
+//   // trying to get to the render part to be able to get to "add-post"
+//     .then((dbPostData) => {
+//       const posts = dbPostData.map((post) => post.get({ plain: true }));
+//       res.render("add-post", { posts }); //<===============login stuff
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
 router.get("/new", withAuth, (req, res) => {
+  console.log(req.session);
   Post.findAll({
-    //session <==================
-    attributes: ["id", "title", "artist", "post_content", "created_at"],
+    // session check
+    
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      "id",
+      "title",
+      "artist",
+      "post_content",
+      "created_at",
+      // [
+      //   sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+      //   "thumbs_count",
+      // ],
+      // [
+      //   sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
+      //   "sunglasses_count",
+      // ],
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
-  // trying to get to the render part to be able to get to "add-post"
     .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("add-post", { posts }); //<===============login stuff
+      console.log(dbPostData);
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render("add-post", { posts , loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
+// router.post('/new', withAuth, (req, res) => {
+//   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+//   Post.create({
+//     title: req.body.title,
+//     post_url: req.body.post_url,
+//     user_id: req.session.user_id
+//   })
+//   .then((dbPostData) => {
+//           console.log(dbPostData);
+//           const posts = dbPostData.map(post => post.get({ plain: true }));
+//           res.render("add-post", { posts , loggedIn: true });
+//         })
+//         .catch((err) => {
+//           console.log(err);
+//           res.status(500).json(err);
+//         });
+// });
 
 module.exports = router;

@@ -21,5 +21,5 @@ async function thumbsClickHandler(event) {
     }
   }
   
-  document.querySelector(".thumbs").addEventListener("click", thumbsClickHandler);
+  //document.querySelector(".thumbs").addEventListener("click", thumbsClickHandler);
   
