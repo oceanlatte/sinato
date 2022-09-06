@@ -1,11 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-<<<<<<< HEAD
 const { Post, User, Comment, Thumbs, Sunglasses } = require("../models");
-=======
-const { Post, User, Comment, Thumbs } = require("../models");
 const withAuth = require('../utils/auth');
->>>>>>> f974b69 (I need to start a develop branch)
 
 router.get("/", withAuth, (req, res) => {
   Post.findAll({
