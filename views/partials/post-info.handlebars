@@ -1,5 +1,6 @@
-<article class="col-9 d-flex align-items-center card post-card border-0">
+<article class="col card post-card border-0">
 
+  {{!-- song title, artist and post info --}}
   <div class="card-body outline rounded-4">
     <h2 class="card-title text-center post-title m-auto my-3 rounded p-2 px-4">
       {{title}}
@@ -11,6 +12,7 @@
       posted by <span class="user-post"> {{user.username}}</span> 
     </p>
 
+    {{!-- comments and votes info --}}
     <div class="interactions d-flex justify-content-between">
       <p class="thumbs-count rounded px-3"> 
         thumbs count here{{thumbs.thumbs_count}}

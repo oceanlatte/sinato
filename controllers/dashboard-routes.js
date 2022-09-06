@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
         "thumbs_count"
       ],
       [
-        sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
+        sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
         "sunglasses_count",
       ],
     ],
@@ -44,9 +44,9 @@ router.get("/edit/:id", (req, res) => {
     //     "post_content",
     //     "title",
     //     "created_at",
-    //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
+    //     [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
     // ],
-    //    [sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
+    //    [sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
     // ],
     include: [
       {
@@ -99,7 +99,13 @@ router.get("/editcomments/:id", (req, res) => {
 
 // creates a new post route!! separate page to make new posts!!
 router.get("/new", (req, res) => {
-  res.render("add-post"); //<===============login stuff
+  if(req.session) {
+    res.render("add-post"); //<===============login stuff
+  }
+  else {
+    res.status(404).end();
+  }
+
 
 })
 // router.get("/new", (req, res) => {

@@ -1,5 +1,7 @@
-{{#each posts as |post|}}
-  <div class="col-lg-9 col-md-6 d-flex rounded-4 ms-5 my-3 py-3" id="single-post">
+<div class="container flex-column align-items-center col-lg-9 col-md-6 ms-5 my-3 py-3">
+  {{#each posts as |post|}}
+    <div class="row">
     {{> post-info post }}
-  </div>
+    </div>
 {{/each}}
+  </div>
