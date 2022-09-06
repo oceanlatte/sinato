@@ -60,6 +60,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
     attributes: [
         "id",
         "post_content",
+        "artist",
         "title",
         "created_at",
     //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
@@ -119,7 +120,7 @@ router.get("/editcomments/:id", withAuth, (req, res) => {
 router.get("/new", withAuth, (req, res) => {
   Post.findAll({
     //session <==================
-    attributes: ["id", "title", "post_content", "created_at"],
+    attributes: ["id", "title", "artist", "post_content", "created_at"],
   })
   // trying to get to the render part to be able to get to "add-post"
     .then((dbPostData) => {

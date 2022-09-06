@@ -71,11 +71,11 @@ router.get("/:id", (req, res) => {
           "post_id",
           "user_id",
           "created_at"
-      ],
-      include: { 
-        model: User,
-        attributes: ["username"]
-      }
+        ],
+        include: {
+          model: User,
+          attributes: ["username"]
+        }
       },
       {
         model: User,
@@ -143,16 +143,33 @@ router.put("/thumbs", withAuth, (req, res) => {
 });
 
 router.put("/:id", withAuth, (req, res) => {
-  Post.update(
-    {
-      ...req.body,
+  Post.update({
+
+    where: {
+      id: req.params.id,
     },
-    {
-      where: {
-        id: req.params.id,
+    attributes: [
+      'id', 
+      'title', 
+      'artist',
+      'post_content', 
+      'created_at'
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
       },
-    }
-  )
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
+    ]
+  })
     .then((dbPostData) => {
       if (!dbPostData) {
         res.status(404).json({ message: "No post found with this id." });
