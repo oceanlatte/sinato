@@ -17,7 +17,7 @@ router.get("/", withAuth, (req, res) => {
       "created_at",
       [
         sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-        "thumbs_count",
+        "thumbs_count"
       ],
       [
         sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
@@ -59,9 +59,9 @@ router.get("/edit/:id", withAuth, (req, res) => {
     //     "post_content",
     //     "title",
     //     "created_at",
-    //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
+    //     [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
     // ],
-    //    [sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
+    //    [sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
     // ],
     include: [
       {

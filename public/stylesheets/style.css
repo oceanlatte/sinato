@@ -22,6 +22,7 @@ font-family: 'Work Sans', sans-serif;
   --gray: #2A2747;
   --gray-gradient: linear-gradient(to bottom, #8c8c8c, #787878, #656565, #525252, #404040);
   --blue-gradient: linear-gradient(to right top, #46B4A9, #56C8A5, #77DB9A, #A2EC8A, #D5F979);
+  --green-border: 1px solid #D5f979;
 }
 
 body {
@@ -45,10 +46,15 @@ h1, h2, h3, h4 {
   font-family: 'Work Sans', sans-serif;
 }
 
-/* main styling */
+footer {
+  background-color: var(--gray);
+}
+
+/* --------main.handlebars styling-------- */
 #user-nav {
-  width: 180px;
+  width: 215px;
   background-image: var(--gray-gradient); 
+  font-size: 20px;
 }
 
 .log-in-out {
@@ -56,6 +62,7 @@ h1, h2, h3, h4 {
   max-height: fit-content;
   background-image: var(--gray-gradient); 
   font-weight: normal;
+  border: none;
 }
 
 .log-in-out:hover {
@@ -63,11 +70,19 @@ h1, h2, h3, h4 {
   color: var(--gray);
 }
 
+#logo:hover {
+  border: none;
+  background-image: var(--blue-gradient);
+  color: var(--gray);
+}
 
-/* single post styling */
-#single-post {
-  border: 1px solid var(--green);
+/* -------single post styling--------- */
+.post-card {
   background-color: transparent;
+}
+
+#post-body {
+  width: 800px;
 }
 
 .post-title {
@@ -77,4 +92,50 @@ h1, h2, h3, h4 {
 
 .artist-name {
   color: var(--green);
+}
+
+.artist-span {
+  color: white;
+  font-size: 20px;
+}
+
+.user-post {
+  color: var(--blue);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#card-row {
+  width: fit-content;
+}
+
+.thumbs-count {
+  background-image: var(--gray-gradient);
+}
+
+/* login page styling */
+.outline {
+  border: var(--green-border);
+  margin-left: 60px;
+  padding: 15px;
+  width: fit-content;
+  background-color: transparent;
+}
+
+
+
+
+
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 980px) { 
+  #post-body {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 780px) { 
+  #post-body {
+    width: fit-content;
+  }
 }

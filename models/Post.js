@@ -15,9 +15,9 @@ class Post extends Model {
           },
           attributes: [
             "id",
-            "post_content",
-            "artist",
             "title",
+            "artist",
+            "post_content",
             "created_at",
             //the thumbs tally
             [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
