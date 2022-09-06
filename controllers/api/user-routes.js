@@ -1,6 +1,6 @@
 const router = require("express").Router();
 //const { contentDisposition } = require("express/lib/utils");
-const { User, Post,  } = require("../../models");
+const { User,   } = require("../../models");
 
 ///GET /api/users
 router.get("/", (req, res) => {
@@ -61,6 +61,7 @@ router.post("/", (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  console.log(req.body);
   User.findOne({
       where: {
           username: req.body.username

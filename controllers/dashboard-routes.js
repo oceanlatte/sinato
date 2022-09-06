@@ -16,14 +16,28 @@ router.get("/", withAuth, (req, res) => {
       "post_content",
       "created_at",
       [
-        sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+        sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
         "thumbs_count",
       ],
       [
-        sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
+        sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
         "sunglasses_count",
       ],
     ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post = post.get({ plain: true })));
