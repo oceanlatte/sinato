@@ -3,6 +3,7 @@ const req = require("express/lib/request");
 const res = require("express/lib/response");
 const sequelize = require("../../config/connection");
 const { Post, User, Comment, Thumbs } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 //get all posts
 router.get("/", (req, res) => {
@@ -95,7 +96,7 @@ router.post("/", (req, res) => {
       });
 });
 
-router.put("/thumbs", (req, res) => {
+router.put("/thumbs", withAuth, (req, res) => {
   // for thumbs up
   Thumbs.create({
     user_id: req.body.user_id,
@@ -127,7 +128,7 @@ router.put("/thumbs", (req, res) => {
   });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Post.update(
     {
       ...req.body,
@@ -151,7 +152,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Post.destroy({
     where: {
       id: req.params.id,
