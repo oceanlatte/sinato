@@ -4,8 +4,10 @@ const { Post, User, Comment, Thumbs, Sunglasses } = require("../models");
 const withAuth = require('../utils/auth');
 
 router.get("/", withAuth, (req, res) => {
+  console.log(req.session);
   Post.findAll({
     // session check
+    
     where: {
       user_id: req.session.user_id
     },
@@ -15,14 +17,14 @@ router.get("/", withAuth, (req, res) => {
       "artist",
       "post_content",
       "created_at",
-      [
-        sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-        "thumbs_count"
-      ],
-      [
-        sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
-        "sunglasses_count",
-      ],
+      // [
+      //   sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
+      //   "thumbs_count",
+      // ],
+      // [
+      //   sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
+      //   "sunglasses_count",
+      // ],
     ],
     include: [
       {
@@ -40,8 +42,9 @@ router.get("/", withAuth, (req, res) => {
     ]
   })
     .then((dbPostData) => {
-      const posts = dbPostData.map((post = post.get({ plain: true })));
-      res.render("dashboard", { posts, loggedIn: true });
+      console.log(dbPostData);
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render("dashboard", { posts , loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -54,15 +57,15 @@ router.get("/edit/:id", withAuth, (req, res) => {
     where: {
       id: req.params.id,
     },
-    // attributes: [
-    //     "id",
-    //     "post_content",
-    //     "title",
-    //     "created_at",
-    //     [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
+    attributes: [
+        "id",
+        "post_content",
+        "title",
+        "created_at",
+    //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
     // ],
-    //    [sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
-    // ],
+    //    [sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
+     ],
     include: [
       {
         model: Comment,
