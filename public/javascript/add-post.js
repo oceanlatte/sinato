@@ -3,10 +3,14 @@ async function newFormHandler(event) {
 
   const title = document.querySelector('input[name="post-title"]').value.trim();
   const artist = document.querySelector('input[name="artist-name"]').value.trim();
-  const post_content = document.querySelector('textarea[id="post-content"]').value.trim();
+  const post_content = document.querySelector('input[name="post_content"]').value;
 
+  
+    console.log(title);
+    console.log(artist);
+    console.log(post_content);
   const response = await fetch(`/api/posts`, {
-      method: 'POST',
+    method: 'POST',
       body: JSON.stringify({
           title,
           artist,
@@ -26,4 +30,4 @@ async function newFormHandler(event) {
 }
 
 
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);
