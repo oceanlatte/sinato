@@ -97,21 +97,21 @@ router.get("/editcomments/:id", (req, res) => {
     });
 });
 
-// creates a new post route!! separate page to make new posts!!
-// router.get("/new", (req, res) => {
-//   Post.findAll({
-//     //session <==================
-//     attributes: ["id", "title", "text_content", "created_at"],
-//   })
-//   // trying to get to the render part to be able to get to "add-post"
-//     .then((dbPostData) => {
-//       const posts = dbPostData.map((post) => post.get({ plain: true }));
-//       res.render("add-post", { posts }); //<===============login stuff
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+//creates a new post route!! separate page to make new posts!!
+router.get("/new", (req, res) => {
+  Post.findAll({
+    //session <==================
+    attributes: ["id", "title", "post_content", "created_at"],
+  })
+  // trying to get to the render part to be able to get to "add-post"
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("add-post", { posts }); //<===============login stuff
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
