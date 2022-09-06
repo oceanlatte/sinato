@@ -29,7 +29,6 @@ body {
   background-color: var(--gray);
   font-family: 'Ubuntu', sans-serif;
   color: white;
-  width: 100%;
 }
 
 a {
@@ -49,8 +48,9 @@ h1, h2, h3, h4 {
 
 /* main styling */
 #user-nav {
-  width: 180px;
+  width: 215px;
   background-image: var(--gray-gradient); 
+  font-size: 20px;
 }
 
 .log-in-out {
@@ -77,6 +77,10 @@ h1, h2, h3, h4 {
   background-color: transparent;
 }
 
+#post-body {
+  width: 850px;
+}
+
 .post-title {
   background-image: var(--blue-gradient);
   color: var(--gray);
@@ -93,16 +97,13 @@ h1, h2, h3, h4 {
 
 .user-post {
   color: var(--blue);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .thumbs-count {
   background-image: var(--gray-gradient);
 }
-
-
-
-
-
 
 /* login page styling */
 .outline {
@@ -114,3 +115,13 @@ h1, h2, h3, h4 {
 }
 
 
+
+
+
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 980px) { 
+  #post-body {
+    width: fit-content;
+  }
+}

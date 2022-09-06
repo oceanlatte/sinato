@@ -1,7 +1,7 @@
-<article class="col card post-card border-0">
+<article class="col card post-card border-0 my-4 ms-5">
 
   {{!-- song title, artist and post info --}}
-  <div class="card-body outline rounded-4">
+  <div class="card-body outline rounded-4" id="post-body">
     <h2 class="card-title text-center post-title m-auto my-3 rounded p-2 px-4">
       {{title}}
     </h2>
@@ -10,6 +10,9 @@
     </h3>
     <p>
       posted by <span class="user-post"> {{user.username}}</span> 
+    </p>
+    <p>
+      {{post_content}}
     </p>
 
     {{!-- comments and votes info --}}
