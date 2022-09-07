@@ -1,4 +1,4 @@
-<article class="col card g-0 post-card border-0 mt-4">
+<article class="col card g-0 transparent-bkg border-0 mt-4">
 
   {{!-- song title, artist and post info --}}
   <div class="outline rounded-4" id="post-body">
@@ -17,7 +17,7 @@
 
     {{!-- comments info --}}
     <p class="ms-3 d-flex justify-content-end my-0">
-      {{comments.length}} {{format_plural "comment" comments.length}}
+      <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </p>
 
   </div>

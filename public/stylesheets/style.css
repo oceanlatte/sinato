@@ -46,10 +46,6 @@ h1, h2, h3, h4 {
   font-family: 'Work Sans', sans-serif;
 }
 
-#logo-nav {
-  background-image: linear-gradient(to bottom, #2a2747, #272441, #23213c, #201e36, #1d1b31);
-}
-
 footer {
   background-color: var(--gray);
 }
@@ -58,11 +54,25 @@ footer {
   font-weight: normal;
 }
 
-/* --------main.handlebars styling-------- */
-#user-nav {
-  width: 215px;
-  background-image: var(--gray-gradient); 
-  font-size: 20px;
+/* ========== UTILS ============ */
+.transparent-bkg {
+  background-color: transparent;
+}
+
+.green-label {
+  color: var(--green);
+}
+
+.blue-label {
+  color: var(--blue);
+}
+
+.outline {
+  border: var(--green-border);
+  margin-left: 60px;
+  padding: 15px;
+  width: fit-content;
+  background-color: transparent;
 }
 
 .styled-btn {
@@ -78,6 +88,19 @@ footer {
   color: var(--gray);
 }
 
+
+/* --------main.handlebars styling-------- */
+#user-nav {
+  width: 215px;
+  background-image: var(--gray-gradient); 
+  font-size: 20px;
+}
+
+#logo-nav {
+  background-image: linear-gradient(to bottom, #2a2747, #272441, #23213c, #201e36, #1d1b31);
+}
+
+
 #logo:hover {
   border: none;
   background-image: var(--blue-gradient);
@@ -85,10 +108,6 @@ footer {
 }
 
 /* -------single post partial styling--------- */
-.post-card {
-  background-color: transparent;
-}
-
 #post-body {
   width: 800px;
 }
@@ -131,14 +150,6 @@ footer {
 }
 
 /* -------login page styling-------- */
-.outline {
-  border: var(--green-border);
-  margin-left: 60px;
-  padding: 15px;
-  width: fit-content;
-  background-color: transparent;
-}
-
 .post-content {
   width: 100px;
 }

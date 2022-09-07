@@ -1,6 +1,4 @@
 const router = require("express").Router();
-// const { json } = require("express/lib/response");
-const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 
 
@@ -13,12 +11,6 @@ router.get("/",  (req, res) => {
       "artist",
       "post_content",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"
-        ),
-        "thumbs_count",
-      ],
     ],
     include: [
       {

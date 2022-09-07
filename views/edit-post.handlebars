@@ -3,33 +3,36 @@
     <h2 class="post-title text-center my-3 rounded p-2 px-4">
         Edit Post
     </h2>
-    <form class="edit-post-form">
-        <div>
-            <label for="post-title">Song Title:</label>
-            <input name="post-title" type="text" value="{{post.title}}"/>
-            <label class="form-label" for="atrist">Artist</label>
-            <input name="artist" type="text" value="{{post.artist}}"/>
-            <label class="form-label" for="post_content">Content</label>
-            <input name="post-content" id="emojionearea1" type="text" value="{{post.post_content}}"/></input>
-        </div>
-        <div>
-            {{!-- reaction counts here --}}
-            <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-        </div>
-        <button type="submit">Save Post</button>
-        <button type="button" class="delete-post-btn">Delete Post</button>
-    </form>
-    <form class="comment-form mt-3">
-    <div>
-        <textarea name="comment-body" class="form-control"></textarea>
-    </div>
     
-{{> comments post.comments}}
+    <form class="edit-post-form mb-5">
+        <div class="my-3 flex-column justify-content-between">
+            <label for="post-title" class="green-label">Song Title:</label>
+            <input name="post-title" type="text" value="{{post.title}}"/>
+            <label class="form-label green-label" for="atrist" >Artist:</label>
+            <input name="artist" type="text" value="{{post.artist}}"/>
+            
+            <div class="form-control transparent-bkg border-0 p-0 mt-2">
+                <label class="form-label green-label" for="post_content">Content:</label>
+                <input name="post-content" id="emojionearea1" type="text" value="{{post.post_content}}"/></input>
+            </div>
+        </div>
 
-    <div>
-        <button type="submit">Add Comment</button>
-    </div>
+        <button type="submit" class="styled-btn rounded-pill px-3 mx-2 mb-3">
+            Save Post
+        </button>
+        <button type="button" class="delete-post-btn styled-btn rounded-pill px-3 mx-2 mb-3">
+            Delete Post
+        </button>
+    </form>
+
+    <form class="comment-form mt-3">
+        <label for="comment-body" class="blue-label">Add New Comment:</label>
+        <textarea name="comment-body" class="form-control"></textarea>
+    
+    <button type="submit" class="styled-btn rounded-pill px-3 mx-2 my-3">Add Comment</button>
 </form>
+
+{{> comments post.comments}}
 </article>
 
 
