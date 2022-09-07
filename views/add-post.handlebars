@@ -12,9 +12,19 @@
             <label for="artist-name" class="new-post-labels">Artist Name:</label>
             <input name="artist-name" type="text" class="form-control" id="artist-name"/>
         </div>
-        <textarea name="post-content" class="form-control mt-4 mb-3" rows="3"></textarea>
+        <textarea id="emojionearea1" name="post-content" class="form-control mt-4 mb-3" rows="3"></textarea>
         <button type="submit" class="mt-2 rounded-pill px-3 log-in-out">Save Post</button>
     </form>
 </article>
+
+
+<script>
+    $(document).ready(function() {
+        $("#emojionearea1").emojioneArea({
+            pickerPosition: "bottom",
+            tonesStyle: "bullet"
+        });
+    })
+</script>
 
 <script src="/javascript/add-post.js"></script>

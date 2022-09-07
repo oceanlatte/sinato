@@ -21,12 +21,15 @@
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.2",
+    "emojionearea": "^3.0.0",
     "emoticons": "^0.1.8",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
+    "install": "^0.13.0",
     "mysql2": "^2.3.3",
+    "npm": "^8.19.1",
     "sequelize": "^6.21.4",
     "session": "^0.1.0"
   }
