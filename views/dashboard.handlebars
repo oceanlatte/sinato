@@ -1,15 +1,23 @@
+<section class="col p-4 ms-5 flex-column justify-content-center">
+    <h2 class="d-block my-post-title text-center rounded mb-3 py-3">
+        My Posts
+    </h2>
 {{#if posts.length}}
-<section class="col outline rounded p-4">
-    <h2 class="d-block post-title text-center rounded mb-3">Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-        <li>
+    {{#each posts as |post|}}
+        <div class="flex-column justify-content-center">
             {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
-        </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
 
-<script src="/javascript/add-post.js"></script>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link rounded-pill my-2 px-5 py-1 styled-btn">
+                Edit Post
+            </a>
+
+        </div>
+    {{/each}}
+{{else}}
+    <div class="flex-column justify-content-center text-center">
+        <h3>No posts yet. <a href="/dashboard/new" id="no-post-alert">Create a post</a> to get started! </h3>
+    </div>
+{{/if}}
+</section>

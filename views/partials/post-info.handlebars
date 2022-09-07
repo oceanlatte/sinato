@@ -1,8 +1,8 @@
-<article class="col card post-card border-0 my-4">
+<article class="col card post-card border-0 mt-4 m-auto">
 
   {{!-- song title, artist and post info --}}
   <div class="card-body outline rounded-4" id="post-body">
-    <h2 class="card-title text-center post-title m-auto my-3 rounded p-2 px-4">
+    <h2 class="card-title text-center post-title my-3 rounded p-2 px-4">
        <a class="link" href="/post/{{id}}">{{title}}</a>
     </h2>
     <h3 class="card-subtitle artist-name mt-2">
@@ -16,11 +16,8 @@
     </p>
 
     {{!-- comments and votes info --}}
-    <div class="interactions d-flex justify-content-between">
-      <p class="thumbs-count rounded px-3"> 
-        thumbs count here{{thumbs.thumbs_count}}
-      </p>
-      <p class="ms-3 comment-span">
+    <div class="d-flex justify-content-end">
+      <p class="ms-3">
         {{comments.length}} {{format_plural "comment" comments.length}}
       </p>
     </div>

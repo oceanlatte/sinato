@@ -57,7 +57,7 @@ footer {
   font-size: 20px;
 }
 
-.log-in-out {
+.styled-btn {
   color: white;
   max-height: fit-content;
   background-image: var(--gray-gradient); 
@@ -65,7 +65,7 @@ footer {
   border: none;
 }
 
-.log-in-out:hover {
+.styled-btn:hover {
   background-image: var(--blue-gradient);
   color: var(--gray);
 }
@@ -122,7 +122,7 @@ footer {
   background-image: var(--gray-gradient);
 }
 
-/* login page styling */
+/* -------login page styling-------- */
 .outline {
   border: var(--green-border);
   margin-left: 60px;
@@ -141,6 +141,21 @@ footer {
   color: var(--green);
 }
 
+
+/* ------- dashboard.handlebars styling ------*/
+.my-post-title {
+  background-image: linear-gradient(to bottom, #46b4a9, #56c8a5, #77db9a, #a2ec8a, #d5f979);
+  color: var(--gray);
+}
+
+#no-post-alert {
+  color: var(--blue);
+  font-family: 'Work Sans', sans-serif;
+}
+
+#no-post-alert:hover {
+  color: var(--green);
+}
 
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
