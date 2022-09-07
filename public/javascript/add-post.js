@@ -3,7 +3,7 @@ async function newFormHandler(event) {
 
   const title = document.querySelector('input[name="post-title"]').value.trim();
   const artist = document.querySelector('input[name="artist-name"]').value.trim();
-  const post_content = document.querySelector('textarea[name="post_content"]').value;
+  const post_content = document.querySelector('input[name="post-content"]').value;
 
   
     console.log(title);

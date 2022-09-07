@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment, Thumbs, Sunglasses } = require("../models");
+const { Post, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
+//get all posts from the dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
@@ -15,15 +16,7 @@ router.get("/", withAuth, (req, res) => {
       "title",
       "artist",
       "post_content",
-      "created_at",
-      // [
-      //   sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-      //   "thumbs_count",
-      // ],
-      // [
-      //   sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
-      //   "sunglasses_count",
-      // ],
+      "created_at"
     ],
     include: [
       {
@@ -60,10 +53,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         "post_content",
         "artist",
         "title",
-        "created_at",
-    //     [sequelize.literal("(COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"), "thumbs_count"]
-    // ],
-    //    [sequelize.literal("(COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"), "sunglasses_count"]
+        "created_at"
      ],
     include: [
       {
@@ -146,15 +136,7 @@ router.get("/new", withAuth, (req, res) => {
       "title",
       "artist",
       "post_content",
-      "created_at",
-      // [
-      //   sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-      //   "thumbs_count",
-      // ],
-      // [
-      //   sequelize.literal("(SELECT COUNT(*) FROM sunglasses WHERE post.id = sunglasses.post_id)"),
-      //   "sunglasses_count",
-      // ],
+      "created_at"
     ],
     include: [
       {

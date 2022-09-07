@@ -3,7 +3,7 @@ async function editFormHandler(event) {
 
     const title = document.querySelector('input[name="post-title"]').value.trim();
     const artist = document.querySelector('input[name="artist"]').value.trim();
-    const post_content = document.querySelector('input[name="post_content"]').value.trim();
+    const post_content = document.querySelector('input[name="post-content"]').value.trim();
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
