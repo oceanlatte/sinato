@@ -1,22 +1,21 @@
 {{> post-info post}}
 
-{{!-- {{#if loggedIn}} --}}
 <div class="row text-center">
+{{#if loggedIn}}
     <form class="comment-form">
         <div>
             <textarea name="comment-body"></textarea>
         </div>
         <div>
             <button type="submit" class="styled-btn rounded px-2">add comment</button>
-            <button type="button" class="thumbs-btn styled-btn rounded px-2">thumbs</button>
         </div>
     </form>
-    {{!-- {{/if}} --}}
+    {{/if}}
 
     {{> comments post.comments}}
 </div>
 
-{{!-- {{#if loggedIn}} --}}
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/thumbs.js"></script>
-{{!-- {{/if}} --}}
+{{/if}}
