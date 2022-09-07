@@ -50,6 +50,10 @@ footer {
   background-color: var(--gray);
 }
 
+#back {
+  font-weight: normal;
+}
+
 /* --------main.handlebars styling-------- */
 #user-nav {
   width: 215px;
@@ -76,7 +80,7 @@ footer {
   color: var(--gray);
 }
 
-/* -------single post styling--------- */
+/* -------single post partial styling--------- */
 .post-card {
   background-color: transparent;
 }
@@ -118,8 +122,8 @@ footer {
   width: fit-content;
 }
 
-.thumbs-count {
-  background-image: var(--gray-gradient);
+.single-post-div {
+  width: fit-content;
 }
 
 /* -------login page styling-------- */
@@ -139,6 +143,10 @@ footer {
 .new-post-labels {
   font-size: 20px;
   color: var(--green);
+}
+
+.single-post-comment {
+  width: 600px;
 }
 
 

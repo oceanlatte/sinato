@@ -28,7 +28,6 @@
 
     <main class="container mx-0 p-0">
         <div class="row ms-0">
-            {{#if loggedIn}}
             <nav class="nav flex-column col-2 align-self-start border-0 rounded-end my-4" id="user-nav">
                 <li class="nav-item border-bottom ps-2 pe-5 py-2">
                     <a href="/">Home</a>
@@ -40,7 +39,6 @@
                     <a href="/dashboard">My Posts</a>
                 </li>
             </nav>
-            {{/if}}
 
             {{{ body }}}
         </div>

@@ -1,10 +1,11 @@
-<article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
-    <h2>
+<article class="col outline rounded-4">
+    <a href="/dashboard"> &larr; <span id="back">Back to</span> My Posts</a>
+    <h2 class="post-title text-center my-3 rounded p-2 px-4">
         Edit Post
     </h2>
     <form class="edit-post-form">
         <div>
+            <label for="post-title">Song Title:</label>
             <input name="post-title" type="text" value="{{post.title}}"/>
             <label class="form-label" for="atrist">Artist</label>
             <input name="artist" type="text" value="{{post.artist}}"/>
@@ -18,11 +19,9 @@
         <button type="submit">Save Post</button>
         <button type="button" class="delete-post-btn">Delete Post</button>
     </form>
-</article>
-
-<form class="comment-form">
+    <form class="comment-form mt-3">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="comment-body" class="form-control"></textarea>
     </div>
     
 {{> comments post.comments}}
@@ -31,6 +30,9 @@
         <button type="submit">Add Comment</button>
     </div>
 </form>
+</article>
+
+
 
 
 <script src="/javascript/edit-post.js"></script>
