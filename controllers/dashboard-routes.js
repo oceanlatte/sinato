@@ -1,11 +1,9 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 //get all posts from the dashboard
 router.get("/", withAuth, (req, res) => {
-  console.log(req.session);
   Post.findAll({
     // session check
     where: {
@@ -103,27 +101,6 @@ router.get("/editcomments/:id", withAuth, (req, res) => {
     });
 });
 
-//creates a new post route!! separate page to make new posts!!
-// router.get("/new", withAuth, (req, res) => {
-//   Post.findAll({
-//     //session <==================
-//     where: {
-//       // use the ID from the session
-//       user_id: req.session.user_id
-//   },
-//     attributes: ["id", "title", "artist", "post_content", "created_at"],
-//   })
-//   // trying to get to the render part to be able to get to "add-post"
-//     .then((dbPostData) => {
-//       const posts = dbPostData.map((post) => post.get({ plain: true }));
-//       res.render("add-post", { posts }); //<===============login stuff
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
 router.get("/new", withAuth, (req, res) => {
   Post.findAll({
     // session check
@@ -163,24 +140,5 @@ router.get("/new", withAuth, (req, res) => {
     });
 });
 
-
-
-// router.post("/new", (req, res) => {
-//   // expects {title: "Taskmaster goes public!", post_content: "Crazy that no one expected it.", user_id: 1}
-//   console.log(req.body),
-//     Post.create({
-//       ...req.body,
-//       user_id: req.session.user_id
-//     })
-//     .then((dbPostData) => {
-//       console.log(dbPostData);
-//       const posts = dbPostData.map(post => post.get({ plain: true }));
-//       res.render("add-post", { posts , loggedIn: true });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 module.exports = router;
