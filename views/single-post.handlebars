@@ -1,19 +1,23 @@
-<div class="col text-center single-post-div">
-    
-    {{> post-info post}}
+<div class="col single-post-div">
+    <div class="text-center">
+        {{> post-info post}}
+
+    </div>
 
     {{#if loggedIn}}
-        <form class="comment-form">
-            <div class="mt-5 mb-3 d-flex justify-content-center">
-                <textarea name="comment-body" class="form-control single-post-comment"></textarea>
-            </div>
-            <div>
-                <button type="submit" class="styled-btn rounded-pill px-4">add comment</button>
+        <form class="comment-form ms-3">
+            <div class="mt-5 mb-3 ms-5 flex-column justify-content-start">
+                <div>
+                    <textarea name="comment-body" class="form-control single-post-comment"></textarea>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="styled-btn rounded-pill px-4">add comment</button>
+                </div>
             </div>
         </form>
     {{/if}}
 
-            {{> comments post.comments}}
+        {{> comments post.comments}}
 </div>
 
 {{#if loggedIn}}

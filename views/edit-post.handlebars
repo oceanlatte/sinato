@@ -1,10 +1,11 @@
-<article class="col outline rounded">
-    <a href="/dashboard"> &larr; Back to My Posts</a>
-    <h2>
+<article class="col outline rounded-4">
+    <a href="/dashboard"> &larr; <span id="back">Back to</span> My Posts</a>
+    <h2 class="post-title text-center my-3 rounded p-2 px-4">
         Edit Post
     </h2>
     <form class="edit-post-form">
         <div>
+            <label for="post-title">Song Title:</label>
             <input name="post-title" type="text" value="{{post.title}}"/>
             <label class="form-label" for="atrist">Artist</label>
             <input name="artist" type="text" value="{{post.artist}}"/>

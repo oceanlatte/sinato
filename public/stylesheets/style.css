@@ -50,6 +50,10 @@ footer {
   background-color: var(--gray);
 }
 
+#back {
+  font-weight: normal;
+}
+
 /* --------main.handlebars styling-------- */
 #user-nav {
   width: 215px;
