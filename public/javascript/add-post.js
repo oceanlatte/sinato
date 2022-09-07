@@ -3,7 +3,7 @@ async function newFormHandler(event) {
 
   const title = document.querySelector('input[name="post-title"]').value.trim();
   const artist = document.querySelector('input[name="artist-name"]').value.trim();
-  const post_content = document.querySelector('input[name="post-content"]').value;
+  const post_content = document.querySelector('textarea[name="post-content"]').value.trim();
 
   
     console.log(title);
@@ -21,6 +21,8 @@ async function newFormHandler(event) {
           'Content-Type': 'application/json'
       }
   });
+
+
   console.log(response);
   if (response.ok) {
       document.location.replace('/dashboard');
