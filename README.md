@@ -29,7 +29,7 @@ Then from the MySQL powershell terminal run:
 
 
 ## Usage
-To see this project [click here]()
+To see this project [click here](https://sinato.herokuapp.com/)
 ![login-preview](./public/images/sinato-login.png)
 ![homepage-preview](./public/images/sinato-homepage.png)
 
