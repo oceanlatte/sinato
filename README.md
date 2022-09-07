@@ -1,33 +1,40 @@
-# sinato
+# Sinato Social
+
+## Description
+This application is a social media site for music. Users can post about what song they're listening to and a caption on their thoughts. Others can add to the conversation by posting comments and using emojis. Made with Express servers and sessions, this is a great place for music lovers!
+
+## Built With
+* Express 
+* Express sessions
+* JavaScript
+* Node.js
+* Bcrypt
+* MySQL
+* Sequelize
+* Bootstrap
+* CSS
+* Handlebars.js
+* Emoji One Area.js
 
 ## Installation
-1) Run npm init or npm init -y from the command line to initialize a new Node.js package. Your entry point for the program should be server.js. If you use the npm init -y option, remember to manually update your package.json to "main": "server.js" instead of "main": "index.js".
+Installation instructions are only needed if you want to clone this project locally. To do this you will need:
+* An IDE with terminal or terminal
+* MySQL powershell
 
-2) Once that's done, update package.json with the following script:
+Once the project is cloned locally set up the enviornment variables in a .env file with the database name as 'sinato_db' and run the following command:  
+>  npm i   
 
-"start": "node server.js"
+Then from the MySQL powershell terminal run: 
+> source db/schema.sql
 
-3) npm install express sequelize mysql2
 
-4) From the root directory of your project, type mysql -u root -p and press Return.
+## Usage
+To see this project [click here]()
+![login-preview](./public/images/sinato-login.png)
+![homepage-preview](./public/images/sinato-homepage.png)
 
-Enter your MySQL password and press Return again to enter the MySQL shell environment.
-
-To create the database, execute the following command:
-
-source db/schema.sql
-
-5) npm install dotenv
-
-6) DB_NAME='sinato_db'
-DB_USER='your-mysql-username'
-DB_PASSWORD='your-mysql-password'
-
-7) npm install bcrypt
-
-8) Post users in insomnia:
-    Post http://localhost:3001/api/users
-    {
-        "username": "name",
-        "password": "password"
-    }
+## Collaborators
+[Ocean](https://github.com/oceanlatte): Express sessions and styling  
+[Bryan](https://github.com/bryannolasco11): Sequelize models and fixing bugs  
+[Stephanie](https://github.com/strossouw): JavaScript logic and Emoji picker  
+[Ian](https://github.com/TheTrueZK): Handlebars.js and styling  
