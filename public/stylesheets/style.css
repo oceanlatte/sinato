@@ -46,6 +46,10 @@ h1, h2, h3, h4 {
   font-family: 'Work Sans', sans-serif;
 }
 
+#logo-nav {
+  background-image: linear-gradient(to bottom, #2a2747, #272441, #23213c, #201e36, #1d1b31);
+}
+
 footer {
   background-color: var(--gray);
 }
