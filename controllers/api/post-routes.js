@@ -2,7 +2,7 @@ const router = require("express").Router();
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const sequelize = require("../../config/connection");
-const { Post, User, Comment, Thumbs } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const withAuth = require('../../utils/auth');
 
 //get all posts
@@ -15,12 +15,6 @@ router.get("/", (req, res) => {
       "artist",
       "post_content",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"
-        ),
-        "thumbs_count",
-      ],
     ],
     order: [["created_at", "DESC"]],
     include: [
@@ -56,11 +50,7 @@ router.get("/:id", (req, res) => {
       "title",
       "artist",
       "post_content",
-      "created_at",
-      // [
-      //   sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"),
-      //   "thumbs_count",
-      // ],
+      "created_at"
     ],
     include: [
       {
@@ -106,32 +96,6 @@ router.post("/", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    });
-});
-
-router.put("/thumbs", withAuth, (req, res) => {
-  // for thumbs up
-  Thumbs.create({
-    user_id: req.body.user_id,
-    post_id: req.body.post_id,
-  }).then(() => {
-    return Post.findAll({
-      where: {
-        id: req.body.post_id,
-      },
-      attributes: [
-        "id",
-        "title",
-        "artist",
-        "post_content",
-        "created_at",
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM thumbs WHERE post.id = thumbs.post_id)"
-          ),
-          "thumbs_count",
-        ],
-      ],
     })
       .then((dbPostData) => res.json(dbPostData))
       .catch((err) => {
@@ -139,7 +103,6 @@ router.put("/thumbs", withAuth, (req, res) => {
         res.status(400).json(err);
       });
   });
-});
 
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
