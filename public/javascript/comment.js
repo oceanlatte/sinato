@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $("#emojionearea2").emojioneArea({
+        pickerPosition: "bottom",
+        tonesStyle: "bullet"
+    });
+})
+
 async function commentFormHandler(event) {
     event.preventDefault();
 
