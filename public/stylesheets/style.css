@@ -169,6 +169,11 @@ footer {
   color: var(--green);
 }
 
+/* --------- comments partial styling ------- */
+#comments-div {
+  background-color: #1d1b31;
+}
+
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 980px) { 
