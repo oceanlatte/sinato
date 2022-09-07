@@ -118,8 +118,8 @@ footer {
   width: fit-content;
 }
 
-.thumbs-count {
-  background-image: var(--gray-gradient);
+.single-post-div {
+  width: fit-content;
 }
 
 /* -------login page styling-------- */
