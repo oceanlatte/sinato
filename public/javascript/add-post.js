@@ -1,3 +1,10 @@
+$(document).ready(function() {
+  $("#emojionearea1").emojioneArea({
+      pickerPosition: "bottom",
+      tonesStyle: "bullet"
+  });
+})
+
 async function newFormHandler(event) {
   event.preventDefault();
 
