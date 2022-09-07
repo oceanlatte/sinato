@@ -15,12 +15,10 @@
       {{post_content}}
     </p>
 
-    {{!-- comments and votes info --}}
-    <div class="d-flex justify-content-end">
-      <p class="ms-3">
-        {{comments.length}} {{format_plural "comment" comments.length}}
-      </p>
-    </div>
+    {{!-- comments info --}}
+    <p class="ms-3 d-flex justify-content-end my-0">
+      {{comments.length}} {{format_plural "comment" comments.length}}
+    </p>
 
   </div>
 </article>

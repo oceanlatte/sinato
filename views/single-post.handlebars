@@ -1,18 +1,19 @@
-{{> post-info post}}
+<div class="col text-center">
+    
+    {{> post-info post}}
 
-<div class="row text-center">
-{{#if loggedIn}}
-    <form class="comment-form">
-        <div>
-            <textarea name="comment-body"></textarea>
-        </div>
-        <div>
-            <button type="submit" class="styled-btn rounded px-2">add comment</button>
-        </div>
-    </form>
+    {{#if loggedIn}}
+        <form class="comment-form">
+            <div class="mt-5 mb-3 d-flex justify-content-center">
+                <textarea name="comment-body" class="form-control single-post-comment"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="styled-btn rounded-pill px-4">add comment</button>
+            </div>
+        </form>
     {{/if}}
 
-    {{> comments post.comments}}
+            {{> comments post.comments}}
 </div>
 
 {{#if loggedIn}}

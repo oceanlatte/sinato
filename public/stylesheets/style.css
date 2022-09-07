@@ -76,7 +76,7 @@ footer {
   color: var(--gray);
 }
 
-/* -------single post styling--------- */
+/* -------single post partial styling--------- */
 .post-card {
   background-color: transparent;
 }
@@ -139,6 +139,10 @@ footer {
 .new-post-labels {
   font-size: 20px;
   color: var(--green);
+}
+
+.single-post-comment {
+  width: 600px;
 }
 
 
